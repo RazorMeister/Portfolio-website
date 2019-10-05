@@ -1,0 +1,543 @@
+<!DOCTYPE HTML>
+<html lang="pl">
+<head>
+	<!-- Meta markers -->
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="Tymoteusz `RazorMeister` Bartnik">
+	<!-- Title -->
+	<title>Portfolio RazorMeister</title>
+	<!-- Fonts & Fontello -->
+	<link rel="Shortcut icon" href="http://xbot-ts3.pl/site/img/favicon.ico">
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<link href="fontello/css/fontello.css" rel="stylesheet">
+	<!-- https://github.com/jlmakes/scrollreveal#22-the-starting-defaults -->
+	<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<!-- Parallax https://github.com/pixelcog/parallax.js -->
+	<script src="js/parallax.min.js"></script>
+	<!-- Łagodne przewijanie -->
+	<script>
+		$(document).ready(function() 
+		{ 
+			$('a[href^="#"]').on('click', function(event) 
+			{
+				var target = $( $(this).attr('href') );
+	
+				if( target.length ) {
+					event.preventDefault();
+					$('html, body').animate({
+					scrollTop: target.offset().top
+					}, 1000);
+				}
+			});
+ 
+		});
+		
+		// Skrypt do menu na mobilnych
+		var menu_usage = function()
+		{
+			var menu = document.querySelector('nav');
+	
+			if (menu.style.display == "block")
+			{
+				$("nav").slideUp();
+			}
+			else
+			{
+				$("nav").slideDown();
+			}
+		}
+	</script>
+	<!-- My CSS styles -->
+	<style type="text/css">
+		*
+		{
+			box-sizing: border-box;
+		}
+	
+		body, html
+		{
+			width: 100%;
+			margin: 0;
+			padding: 0;
+		}
+	
+		body
+		{
+			color: black;
+			font-family: 'Lato', sans-serif;
+		}
+		
+		header
+		{
+			width: 100%;
+			position: fixed;
+			background-color: #0099FF;
+			top: 0px;
+			left: 0px;
+			padding: 10px 20px;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+			z-index: 999;
+			border: 1px solid #0088EE;
+			color: white;
+		}
+		
+		.container-logo
+		{
+			width: 30%;
+			display: flex;
+			justify-content: flex-start;
+			align-items: center;
+			flex-direction: row;
+		}
+		
+		#logo
+		{
+			font-weight: 700;
+            margin: 0;
+            font-size: 34px;
+            transition: transform 1s;
+		}
+        
+        #logo:hover
+		{
+            transform: scale(1.1);
+        }
+		
+		.trademark
+		{
+			font-size: 7px;
+		}
+		
+		nav
+		{
+			width: 70%;
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+			flex-direction: row;
+		}
+		
+		nav ul
+		{
+			list-style: none;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: row;
+			margin: 0;
+			padding: 0;
+		}
+		
+        nav ul li
+        {
+            transition: all .5s;
+        }
+        
+		nav ul li:hover
+		{
+			background-color: #0088EE;
+		}
+
+		nav ul li a
+		{
+			padding: 15px 20px;
+			display: block;
+			width: 100%;
+			color: white;
+			text-decoration: none;
+		}
+		
+		.mobile_menu
+		{
+			display: none;
+		}
+
+		@media screen and (max-width: 750px)
+		{
+			header
+			{
+				flex-direction: column;	
+			}
+		
+			.container-logo
+			{
+				width: 100%;
+				justify-content: center;
+			}
+		
+			nav
+			{
+				display: none;
+				width: 100%;
+			}
+			
+			nav ul
+			{
+				margin-top: 20px;
+				justify-content: center;
+				position: static;
+				flex-direction: column;
+				width: 100%;
+			}
+			
+			nav ul li
+			{
+				width: 100%;
+				text-align: center;
+			}
+			
+			.mobile_menu
+			{
+				padding: 10px;
+				display: block;
+			}
+		}
+		
+		.image
+		{
+			height: 800px;
+			background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+			overflow: hidden;
+		}
+		
+		.full-width
+		{
+			min-height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+	
+		.blur 
+		{
+			background: url("img/1.jpg") no-repeat center center fixed;
+			background-size: cover;
+			overflow: hidden;
+			filter: blur(13px);
+			position: absolute;
+			height: 300px;
+			top: -50px;
+			left: -50px;
+			right: -50px;
+			bottom: -50px;
+		}
+
+		.widget 
+		{
+			  border-top: 2px solid rgba(255, 255, 255, .3);
+			  border-bottom: 2px solid rgba(255, 255, 255, .3);
+			  height: 220px;
+			  width: 100%;
+			  overflow: hidden;
+			  text-align: center;
+		}
+
+		.center 
+		{
+			  position: absolute;
+			  margin: auto;
+			  top: 0;
+			  bottom: 0;
+			  left: 0;
+			  right: 0;
+		}
+		
+		.logo-image-div
+		{
+			text-align: center;
+		}
+		
+		.logo-image
+		{
+			font-size: 75px;
+			color: white;
+            text-shadow: 2px 2px #666;
+		}
+		
+		@media screen and (max-width: 520px)
+		{
+			.logo-image
+			{
+				font-size: 50px;
+			}
+		}
+		
+		@media screen and (min-width: 521px) and (max-width: 570px)
+		{
+			.logo-image
+			{
+				font-size: 55px;
+			}
+		}
+		
+		@media screen and (min-width: 571px) and (max-width: 700px)
+		{
+			.logo-image
+			{
+				font-size: 60px;
+			}
+		}
+		
+		@media screen and (min-width: 701px) and (max-width: 775px)
+		{
+			.logo-image
+			{
+				font-size: 67px;
+			}
+		}
+		
+		section
+		{
+			width: 100%;
+            padding: 2% 4%;
+		}
+		
+		section .container
+		{
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			flex-wrap: wrap;
+		}
+		
+		.fontello-icon
+		{
+			max-width: 50%;
+			font-size: 12em;
+			padding: 6%;
+			margin: 0 2%;
+			transition: all 2s;
+		}
+		
+		.fontello-icon:hover
+		{
+			color: #0088EE;
+		}
+		
+		.content
+		{
+			max-width: 50%;
+			padding: 4%;
+			text-align: justify;
+		}
+		
+		.content h2
+		{
+			font-size: 3em;
+		}
+		
+		footer
+		{
+			color: #ABABAB;
+			text-align: center;
+			width: 100%;
+			padding: 1.5% 0px;
+			background-color: #EFEFEF;
+			border: 1px solid #CDCDCD;
+		}
+		
+		@media screen and (max-width: 750px)
+		{
+			section .container
+			{
+				flex-direction: column;
+			}
+		
+			.reverse-1
+			{
+				order: 1;
+			}
+			
+			.reverse-2
+			{
+				order: 2;
+			}
+		
+			section
+			{
+				width: 100%;
+				padding: 1%;
+			}
+			
+			.fontello-icon
+			{
+				max-width: 100%;
+				padding: 6%;
+				margin: auto;
+				font-size: 9em;
+			}
+			
+			.content
+			{
+				max-width: 100%;
+				padding: 3%;
+				text-align: center;
+			}
+			
+			footer
+			{
+				font-size: 13px;
+			}
+		}
+		
+		a
+		{
+			color: white;
+			text-decoration: none;
+		}
+		
+		.clear
+		{
+			font-weight: bold;
+			color: #676767;
+			text-decoration: none;
+			transition: all .5s;
+		}
+		
+		.clear:hover
+		{
+			color: #0099FF;
+		}
+	</style>
+</head>
+
+<body>
+	<header>
+		<div class="container-logo">
+			<h1 id="logo"><a href="#home"> Portfolio</a></h1>
+		</div>
+		<div class="mobile_menu" onclick="menu_usage();">
+				Menu
+		</div>
+		<nav>
+			<ul>
+				<li>
+					<a href="#one"> O mnie </a>
+				</li>
+				<li>
+					<a href="#two"> Projekt XBot </a>
+				</li>
+				<li>
+					<a href="#three"> Strony WWW </a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+
+	<div id="home" class="image full-width" data-parallax="scroll" data-image-src="img/1.jpg">
+		<div class="widget center">
+			<div class="blur"></div>
+			<div class="logo-image-div">
+				<h2 class="logo-image">
+					Portfolio RazorMeister
+				</h2>
+			</div>
+		</div>
+	</div>
+	</div>
+	<section id="one">
+		<div class="container">
+			<div class="fontello-icon">
+				<i class="icon-user-circle"></i>
+			</div>
+			<div class="content">
+				<h2> O mnie </h2>
+				<p>
+					Witaj na mojej stronie! Nazywam się Tymoteusz Bartnik lecz w sieci jestem znany jako RazorMeister.
+					Mam 18 lat i jestem uczniem liceum ogólnokształcącego.
+				</p>
+				<p>
+					Jestem byłym właścicielem serwera głosowego TeamSpeak3: <a class="clear" href="ts3server://xbot-ts3.pl">xbot-ts3.pl</a>, a także projektu XBot - bota na serwery głosowe TS3.
+				</p>
+				<p>
+					Programowaniem w PHP i tworzeniem stron internetowych zajmuję się od roku. Ciągle się rozwijam i chcę się doskonalić.
+				</p>
+			</div>
+		</div>
+	</section>
+	
+	<div class="image" data-parallax="scroll" data-image-src="img/2.jpg"></div>
+	<section id="two">
+		<div class="container">
+			<div class="content reverse-2">
+				<h2> Projekt XBot </h2>
+				<p>
+					Jestem byłym właścicielem projektu XBot - aplikacji na serwery głosowe TeamSpeak3. Rozwinąłem ten projekt od początku i doprowadziłem go do TOP 3 w Polsce.
+				</p>
+				<p>
+					Posiadam wersję darmowa oznaczoną jako Xbot Standard, która jak na w pełni darmowego bota posiada znaczną ilość funkcji i nie crashuje się jak inne boty.
+				</p>
+				<p>
+					Napisałem również wersję Premium, która jest płatna ale warta swojej ceny. Śmiało można powiedzieć, że jest konkurencją dla topowych botów: mbot'a i abot'a.
+				</p>
+				<p>
+					<i><a class="clear" href="http://xbot-ts3.pl/xbot/regulamin.pdf" target="_blank">Regulamin</a>
+				</p>
+				<p>
+					<i><a class="clear" href="https://www.mpcforum.pl/topic/1608566-bot-xbot-darmowy-bot-na-tw%C3%B3j-serwer-teamspeak/" target="_blank">Wersja Standard</a> | <a class="clear" href="https://www.mpcforum.pl/topic/1622651-xbot-bot-pod-tw%C3%B3j-serwer-teamspeak3/" target="_blank">Wersja Premium</a></i>
+				</p>
+			</div>
+			<div class="fontello-icon reverse-1">
+				<i class="icon-server"></i>
+			</div>
+		</div>
+	</section>
+	
+	<div class="image" data-parallax="scroll" data-image-src="img/3.jpg"></div>
+	<section id="three">
+		<div class="container">
+			<div class="fontello-icon">
+				<i class="icon-wordpress"></i>
+			</div>
+			<div class="content">
+				<h2> Strony internetowe</h2>
+				<p>
+					Zajmuje się tworzeniem witryn internetowych opartych na systemie zarządzania treścią (ang. CMS) - Wordpress.
+				</p>
+				<p>
+					<a class="clear" href="https://pl.wordpress.org/">WordPress</a> jest bezpłatnym oprogramowaniem, którego używa się do tworzenia pięknych stron informacyjnych, sklepów, blogów i witryn o dowolnym innym przeznaczeniu. Wstawianie nowych podstron lub wpisów w WordPresssie to czysta przyjemność. 
+				</p>
+				<p>
+					Moje projekty / współprojekty: 
+					<a class="clear" target="_blank" href="http://80lat.loonz.lbl.pl/"> LOONZ</a> | <a class="clear" target="_blank" href="http://ilokale.pl/">iLokale.pl</a> | <a class="clear" target="_blank" href="http://ministranci.chrystuskrol.zamojskolubaczowska.pl/">Panel</a>
+				</p>
+			</div>
+		</div>
+	</section>
+	
+	<div class="image" data-parallax="scroll" data-image-src="img/4.jpg"></div>
+	
+	<footer>
+		Copyright 2017 By <i>Tymoteusz `Razor Meister` Bartnik</i>
+	</footer>
+	
+	<script>
+		window.sr = ScrollReveal();
+		sr.reveal('.fontello-icon', 
+		{
+			reset: true,
+			delay: 200,
+			distance: 0,
+			opacity: 0.3,
+			scale: 0.6,
+		});
+		sr.reveal('h2, p', 
+		{
+			reset: true,
+			delay: 300
+		});
+</script>
+</body>
+</html>
